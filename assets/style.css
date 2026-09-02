@@ -431,3 +431,9 @@ footer a {
     justify-content: center;
   }
 }
+
+/* 2026-09: 段落で説明するカード / 料金の段のラベル */
+.feature-body p { margin: 0 0 10px; line-height: 1.65; color: rgba(255,255,255,0.82); }
+.feature-body p:last-child { margin-bottom: 0; }
+.tier { display: inline-block; font-size: 0.78em; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+        background: rgba(255,214,10,0.16); color: #ffd60a; margin-right: 6px; vertical-align: middle; }
