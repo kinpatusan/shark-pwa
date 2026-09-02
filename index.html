@@ -2,50 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SharkTeeth Finder – Redirecting…</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shark Tooth Finder – Redirecting…</title>
   <link rel="stylesheet" href="/SharkTeethFinder/assets/style.css">
   <script>
-  (function(){
-    const map = {
-      'ja': '/SharkTeethFinder/ja/',
-      'en': '/SharkTeethFinder/en/',
-      'fr': '/SharkTeethFinder/fr/',
-      'es': '/SharkTeethFinder/es/',
-      'de': '/SharkTeethFinder/de/',
-      'zh': '/SharkTeethFinder/zh-Hans/',
-      'ko': '/SharkTeethFinder/en/',
-      'it': '/SharkTeethFinder/en/',
-      'pt': '/SharkTeethFinder/en/'
-    };
-    const pref = (navigator.language || '').toLowerCase();
-    for (const k in map) {
-      if (pref.startsWith(k)) {
-        location.replace(map[k]);
-        return;
+  (function () {
+    var langs = (navigator.languages || [navigator.language || 'en']).map(function (l) { return l.toLowerCase(); });
+    var map = { 'ja': 'ja', 'zh-hant': 'zh-Hant', 'zh-tw': 'zh-Hant', 'zh-hk': 'zh-Hant', 'zh': 'zh-Hans', 'ko': 'ko',
+                'de': 'de', 'es': 'es', 'fr': 'fr', 'it': 'it', 'pt': 'pt-BR' };
+    for (var i = 0; i < langs.length; i++) {
+      var l = langs[i];
+      var keys = Object.keys(map);
+      for (var k = 0; k < keys.length; k++) {
+        if (l === keys[k] || l.indexOf(keys[k] + '-') === 0) { location.replace('/SharkTeethFinder/' + map[keys[k]] + '/'); return; }
       }
     }
-    // fallback to English
     location.replace('/SharkTeethFinder/en/');
   })();
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0; URL=/SharkTeethFinder/en/">
-  </noscript>
 </head>
 <body>
-  <div class="container" style="text-align: center; padding: 60px 20px;">
-    <div class="hero-icon" style="margin: 0 auto 24px;">🦷</div>
-    <h1>SharkTeeth Finder</h1>
-    <p style="color: rgba(255,255,255,0.7);">Redirecting to your language...</p>
-    <p style="margin-top: 24px;">
-      <a href="/SharkTeethFinder/en/">English</a> ·
-      <a href="/SharkTeethFinder/ja/">日本語</a> ·
-      <a href="/SharkTeethFinder/zh-Hans/">中文</a> ·
-      <a href="/SharkTeethFinder/fr/">Français</a> ·
-      <a href="/SharkTeethFinder/de/">Deutsch</a> ·
-      <a href="/SharkTeethFinder/es/">Español</a>
-    </p>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-icon">🦷</div>
+      <h1>Shark Tooth Finder</h1>
+      <p style="color: rgba(255,255,255,0.7);">Redirecting to your language...</p>
+      <p>
+        <a href="/SharkTeethFinder/en/">English</a> ·
+        <a href="/SharkTeethFinder/ja/">日本語</a> ·
+        <a href="/SharkTeethFinder/zh-Hans/">简体中文</a> ·
+        <a href="/SharkTeethFinder/zh-Hant/">繁體中文</a> ·
+        <a href="/SharkTeethFinder/ko/">한국어</a> ·
+        <a href="/SharkTeethFinder/de/">Deutsch</a> ·
+        <a href="/SharkTeethFinder/es/">Español</a> ·
+        <a href="/SharkTeethFinder/fr/">Français</a> ·
+        <a href="/SharkTeethFinder/it/">Italiano</a> ·
+        <a href="/SharkTeethFinder/pt-BR/">Português</a>
+      </p>
+    </section>
   </div>
 </body>
 </html>
